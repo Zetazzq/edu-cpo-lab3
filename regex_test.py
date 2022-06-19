@@ -260,10 +260,10 @@ class TestMutable(unittest.TestCase):
                          'xxxCPO123456789')
         self.assertEqual(regex.sub('aaa', 'CPO', 'xxxwww123456789'),
                          'xxxwww123456789')
-        self.assertEqual(regex.sub('aaa', 'CPO', 'xxxaaa1234aaa8aa9', count=2),
-                         'xxxCPO1234CPO8aa9')
-        self.assertEqual(regex.sub('\\d\\d', 'CPO', 'xxxaaa1234aaa89', count=3),
-                         'xxxaaaCPOCPOaaaCPO')
+        self.assertEqual(regex.sub('aaa', 'CPO', 'xxxaaa1234aaa8aa9',
+                                   count=2), 'xxxCPO1234CPO8aa9')
+        self.assertEqual(regex.sub('\\d\\d', 'CPO', 'xxxaaa1234aaa89',
+                                   count=3), 'xxxaaaCPOCPOaaaCPO')
 
     def test_split(self):
         regex = Regex()
@@ -295,15 +295,23 @@ class TestMutable(unittest.TestCase):
         self.assertEqual(regex.match("x12yzzz"), (0, 7))
         # case 2
         AOPCheckInput(regex, '\\d\\d\\d\\d-\\d\\d-\\d\\d')
-        self.assertEqual(regex.search('i am born in 2020-10-19'),
+        self.assertEqual(regex.search('i am born in 1997-02-21'),
                          (13, 23))
         # case 3
         # before : AOPCheckInput(regex,'\\d+@qq\....')
         AOPCheckInput(regex, '\\d+@qq\\....')
         self.assertEqual(regex.match('2456170421@qq.com'), (0, 17))
         self.assertEqual(regex.search
-                         ('{"people":[{"name":"zuoziqian","email":"2456170421@qq.com"},'
-                          '{"firstName":"zhouxun","lastName":"995633713@qq.com"}]}'), (40, 57))
+                         ('{"people":[{"name":"zuoziqian",'
+                          '"email":"2456170421@qq.com"}, '
+                          '{"firstName":"zhouxun",'
+                          '"email":"995633713@qq.com"}]}'), (40, 57))
+        AOPCheckInput(regex, 'zh.+n')
+        self.assertEqual(regex.search
+                         ('{"people":[{"name":"zuoziqian",'
+                          '"email":"2456170421@qq.com"}, '
+                          '{"firstName":"zhouxun",'
+                          '"email":"995633713@qq.com"}]}'), (75, 82))
 
 
 if __name__ == '__main__':
