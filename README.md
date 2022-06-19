@@ -40,7 +40,7 @@ Zuo Ziqian Completed the regex.py
 
 ## Changelog
 
-- 10.06.2022 - 1
+- 18.06.2022 - 1
   - Update README and the Python code style by Zuo and Zhou
 - 10.06.2022 - 0
   - Initial
