@@ -4,7 +4,8 @@ If you can go smoothly from the start node to the end node,
 the match is successful
 """
 
-from state import *
+from state import State
+from CONSTANT import EPSILON
 
 
 class NFA(object):

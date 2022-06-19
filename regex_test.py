@@ -1,6 +1,6 @@
 import unittest
 
-from regex import *
+from regex import Regex
 import logging
 
 

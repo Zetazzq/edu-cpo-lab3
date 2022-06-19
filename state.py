@@ -6,7 +6,7 @@ describe the state of NFA graph
 from typing import Dict
 from typing import Any
 
-from CONSTANT import *
+from CONSTANT import getId
 
 
 class State(object):

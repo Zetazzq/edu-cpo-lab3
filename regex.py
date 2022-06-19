@@ -3,13 +3,15 @@ Regex has match search sub split basic methods
 user use regex can do certain things with strings
 """
 
-from nfa import *
-from reader import *
-from strategy import *
+from nfa import NFA
+from reader import Reader
+from strategy import MatchStrategyManager
+from state import State
+from CONSTANT import EPSILON, resetID
 from graphviz import Digraph  # type: ignore
 import logging
 
-from typing import List, Optional
+from typing import List, Optional, Dict
 
 logging.basicConfig(level=logging.INFO)
 

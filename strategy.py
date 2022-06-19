@@ -4,7 +4,7 @@ to deal with ordinary situations
 """
 from typing import Dict
 
-from CONSTANT import *
+from CONSTANT import CHAR
 
 
 class MatchStrategy(object):
