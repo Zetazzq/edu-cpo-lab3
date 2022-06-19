@@ -256,14 +256,19 @@ class TestMutable(unittest.TestCase):
 
     def test_sub(self):
         regex = Regex()
-        self.assertEqual(regex.sub('aaa', 'CPO', 'xxxaaa123456789'), 'xxxCPO123456789')
-        self.assertEqual(regex.sub('aaa', 'CPO', 'xxxwww123456789'), 'xxxwww123456789')
-        self.assertEqual(regex.sub('aaa', 'CPO', 'xxxaaa1234aaa8aa9', count=2), 'xxxCPO1234CPO8aa9')
-        self.assertEqual(regex.sub('\\d\\d', 'CPO', 'xxxaaa1234aaa89', count=3), 'xxxaaaCPOCPOaaaCPO')
+        self.assertEqual(regex.sub('aaa', 'CPO', 'xxxaaa123456789'),
+                         'xxxCPO123456789')
+        self.assertEqual(regex.sub('aaa', 'CPO', 'xxxwww123456789'),
+                         'xxxwww123456789')
+        self.assertEqual(regex.sub('aaa', 'CPO', 'xxxaaa1234aaa8aa9', count=2),
+                         'xxxCPO1234CPO8aa9')
+        self.assertEqual(regex.sub('\\d\\d', 'CPO', 'xxxaaa1234aaa89', count=3),
+                         'xxxaaaCPOCPOaaaCPO')
 
     def test_split(self):
         regex = Regex()
-        self.assertEqual(regex.split('x', 'aaaxaaaxaaa'), ['aaa', 'aaa', 'aaa'])
+        self.assertEqual(regex.split('x', 'aaaxaaaxaaa'),
+                         ['aaa', 'aaa', 'aaa'])
         self.assertEqual(regex.split('x', 'axxxa'), ['a', '', '', 'a'])
         self.assertEqual(regex.split('x', 'aa'), ['aa'])
         self.assertEqual(regex.split('\\d\\d', 'a12134a'), ['a', '', '4a'])
@@ -290,7 +295,8 @@ class TestMutable(unittest.TestCase):
         self.assertEqual(regex.match("x12yzzz"), (0, 7))
         # case 2
         AOPCheckInput(regex, '\\d\\d\\d\\d-\\d\\d-\\d\\d')
-        self.assertEqual(regex.search('i am born in 2020-10-19'), (13, 23))
+        self.assertEqual(regex.search('i am born in 2020-10-19'),
+                         (13, 23))
         # case 3
         # before : AOPCheckInput(regex,'\\d+@qq\....')
         AOPCheckInput(regex, '\\d+@qq\\....')

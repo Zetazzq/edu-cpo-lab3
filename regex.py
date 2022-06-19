@@ -14,7 +14,8 @@ from typing import List, Optional
 logging.basicConfig(level=logging.INFO)
 
 
-def drawGraph(dot: Digraph, edges: list, node: State, markSet: set) -> Optional[None]:
+def drawGraph(dot: Digraph, edges: list, node: State,
+              markSet: set) -> Optional[None]:
     if markSet.__contains__(node.ID):
         return None
     markSet.add(node.ID)
@@ -165,7 +166,8 @@ class Regex(object):
             elif ch == ']':
                 continue
             elif ch == '{':
-                self.parseRepeat_n_m(self.reader.get(self.reader.cur - 2), nfaGraph)
+                self.parseRepeat_n_m(self.reader.get(self.reader.cur - 2),
+                                     nfaGraph)
                 continue
             elif ch == '}':
                 continue
@@ -232,12 +234,15 @@ class Regex(object):
         # return match range
         if endIndex == -1:
             if self.isMaxMatch:
-                logging.info('pattern: ' + self.reader.string + ' match text: ' + text)
+                logging.info('pattern: ' + self.reader.string +
+                             ' match text: ' + text)
                 return 0, 0
-            logging.info('pattern: ' + self.reader.string + ' not match text: ' + text)
+            logging.info('pattern: ' + self.reader.string +
+                         ' not match text: ' + text)
             return None
         else:
-            logging.info('pattern: ' + self.reader.string + ' match text: ' + text)
+            logging.info('pattern: ' + self.reader.string +
+                         ' match text: ' + text)
             if self.isDoller:
                 return j - endIndex - 1, j - 1 + 1
             return startIndex, endIndex + 1
@@ -261,7 +266,8 @@ class Regex(object):
                 ret = self.isMatch(subStr2, 0, start)
                 if ret:
                     endIndex = l1 - j - 1
-                    logging.info('pattern: ' + self.reader.string + ' match text: ' + text)
+                    logging.info('pattern: ' + self.reader.string +
+                                 ' match text: ' + text)
                     if self.isDoller:
                         return l1 - endIndex - 1, l1 - 1 + 1
                     return startIndex, endIndex + 1
@@ -269,9 +275,11 @@ class Regex(object):
                 break
         if endIndex == -1:
             if self.isMaxMatch:
-                logging.info('pattern: ' + self.reader.string + ' match text: ' + text)
+                logging.info('pattern: ' + self.reader.string +
+                             ' match text: ' + text)
                 return 0, 0
-            logging.info('pattern: ' + self.reader.string + ' match text: ' + text)
+            logging.info('pattern: ' + self.reader.string +
+                         ' match text: ' + text)
             return None
 
     def sub(self, pattern: str, repl: str, text: str, count=0) -> str:
@@ -361,7 +369,8 @@ class Regex(object):
                     for value in node.edgeMap[key]:
                         if key[0] == '\\':
                             key = '/' + key[1]
-                        res.append('node{} -> node{} [ label="{}" ];'.format(node.ID, value.ID, key))
+                        res.append('node{} -> node{} [ label="{}" ];'.
+                                   format(node.ID, value.ID, key))
             res.append('}')
             file = open('awt/' + fileName + '.dot', 'w')
             file.write("\n".join(res))

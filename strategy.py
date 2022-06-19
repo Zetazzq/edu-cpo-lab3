@@ -50,8 +50,10 @@ class HatMatchStrategy(MatchStrategy):
 
 class MatchStrategyManager(object):
     def __init__(self) -> None:
-        self.matchStrategyMap = {CHAR: CharMatchStrategy(), '.': DotMatchStrategy(), '\\d': DigitalMatchStrategy(),
-                                 '\\s': SpaceMatchStrategy(), '\\w': WMatchStrategy(),
+        self.matchStrategyMap = {CHAR: CharMatchStrategy(), '.': DotMatchStrategy(),
+                                 '\\d': DigitalMatchStrategy(),
+                                 '\\s': SpaceMatchStrategy(),
+                                 '\\w': WMatchStrategy(),
                                  '^': HatMatchStrategy()}  # type: Dict[str, MatchStrategy]
         # Put it in the strategy table
 
