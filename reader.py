@@ -1,9 +1,10 @@
-'''
+"""
 The Reader class serves as an input buffer from which we can fetch characters
-'''
+"""
+
 
 class Reader(object):
-    def __init__(self,partten: str) -> None:
+    def __init__(self, partten: str) -> None:
         self.string = partten
         self.cur = 0
 
@@ -15,7 +16,7 @@ class Reader(object):
             return '\0'
         return self.string[self.cur]
 
-    def get(self,index) -> str:
+    def get(self, index) -> str:
         return self.string[index]
 
     def next(self) -> str:

@@ -1,0 +1,14 @@
+digraph G {
+rankdir=BT;
+ node0[label="0"];
+ node1[label="1"];
+ node2[label="2"];
+ node3[label="3"];
+ node4[label="4"];
+ node5[label="5"];
+node0 -> node1 [ label="a" ];
+node1 -> node2 [ label="Epsilon" ];
+node2 -> node3 [ label="/d" ];
+node3 -> node4 [ label="Epsilon" ];
+node4 -> node5 [ label="e" ];
+}
