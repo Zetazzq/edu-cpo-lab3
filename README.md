@@ -17,8 +17,8 @@
 
 ### Regular expression
 
-Constructions you should support: \w, \s, \d, \, ^, ., $, *, +, [ ], [^ ], {n}, {min,}, {,max},
-{min,max}, ?, |, ( ), \1, \2, \n.
+Constructions you should support: \w, \s, \d, \, ^, ., $, *, +, [ ], [^ ], {n},
+{min,}, {,max}, {min,max}, ?, |, ( ), \1, \2, \n.
 
 Support functions: match, search, sub, split.
 
