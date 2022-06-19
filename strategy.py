@@ -2,7 +2,6 @@
 we design some basic MatchStrategy
 to deal with ordinary situations
 """
-from typing import Dict
 
 from CONSTANT import CHAR
 
@@ -56,7 +55,6 @@ class MatchStrategyManager(object):
                                  '\\s': SpaceMatchStrategy(),
                                  '\\w': WMatchStrategy(),
                                  '^': HatMatchStrategy()}
-        # type: Dict[str, MatchStrategy]
         # Put it in the strategy table
 
     def getStrategy(self, edge: str):
